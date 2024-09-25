@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.kuwana.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {   
@@ -67,18 +68,21 @@ class MainActivity : AppCompatActivity() {
              val totalTableTemp = binding.tieTotal.text
              val nPeopleTemp = binding.tieNumPeople.text
 
-             if (totalTableTemp.isEmpty() ) 1111 {
-
+             if (totalTableTemp?.isEmpty() == true ||
+                 nPeopleTemp?.isEmpty() == true
+                 )  {
+                Snackbar.make(binding.tieTotal, "Preencha todos os campos", Snackbar.LENGTH_LONG)
+                    .show()
              } else {
+                 val totalTable: Float = totalTableTemp.toString().toFloat()
+                 val nPeople: Int = nPeopleTemp.toString().toInt()
 
+                 val totaltemp = totalTable / nPeople
+                 val tips = totaltemp * percentage / 100
+                 val totalWithTips = totaltemp + tips
+                 binding.tvResult.text = "Total with tips: $totalWithTips"
              }
-             val totalTable: Float = totalTableTemp.toString().toFloat()
-             val nPeople: Int = nPeopleTemp.toString().toInt()
 
-             val totaltemp = totalTable / nPeople
-             val tips = totaltemp * percentage / 100
-             val totalWithTips = totaltemp + tips
-             binding.tvResult.text = "Total with tips: $totalWithTips"
 
 
 
