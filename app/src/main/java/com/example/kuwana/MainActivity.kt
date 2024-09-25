@@ -83,7 +83,14 @@ class MainActivity : AppCompatActivity() {
                  binding.tvResult.text = "Total with tips: $totalWithTips"
              }
 
-
+           binding.btnClean.setOnClickListener {
+               binding.tvResult.setText("")
+               binding.tieTotal.setText("")
+               binding.tieNumPeople.setText("")
+               binding.rbOptionOne.isChecked = false
+               binding.rbOptionTwo.isChecked = false
+               binding.rbOptionThree.isChecked = false
+           }
 
 
          }
