@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.kuwana.databinding.ActivityMainBinding
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {   
@@ -21,25 +22,67 @@ class MainActivity : AppCompatActivity() {
 
 
     //Recuperar as views do layout
-    // find view by id
     // ViewBinding
+    // recuperar os radios buttons
+    // calculo de tip
+    // mostrar resultados
 
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Camel case
-        val btnClean = findViewById<Button>(R.id.btn_clean)
-        val btnDone = findViewById<Button>(R.id.btn_done)
-        val edtTotal: TextInputEditText = findViewById(R.id.tie_total)
-        val edtNumPeople: TextInputEditText = findViewById(R.id.tie_num_people)
+        var percentage: Int = 0
 
-          /*btnClean.setOnClickListener { it: View? ->
-              println("Menio1 " + edtTotal.text)
-                println("Menio1 " + edtNumPeople.text)
-          }*/
+
+          binding.rbOptionOne.setOnCheckedChangeListener { _, isChecked ->
+              if(isChecked){
+                  percentage = 10
+              }
+          }
+
+          binding.rbOptionTwo.setOnCheckedChangeListener { _, isChecked ->
+              if(isChecked){
+                  percentage = 15
+              }
+          }
+
+          binding.rbOptionThree.setOnCheckedChangeListener { _, isChecked ->
+              if(isChecked){
+                  percentage = 20
+              }
+          }
+
+
+
+          binding.btnClean.setOnClickListener { it: View? ->
+              println("Menio1 " + binding.tieTotal.text)
+                println("Menio1 " + binding.tieNumPeople.text)
+          }
+
+         binding.btnDone.setOnClickListener {
+             val totalTableTemp = binding.tieTotal.text
+             val nPeopleTemp = binding.tieNumPeople.text
+
+             if (totalTableTemp.isEmpty() ) 1111 {
+
+             } else {
+
+             }
+             val totalTable: Float = totalTableTemp.toString().toFloat()
+             val nPeople: Int = nPeopleTemp.toString().toInt()
+
+             val totaltemp = totalTable / nPeople
+             val tips = totaltemp * percentage / 100
+             val totalWithTips = totaltemp + tips
+             binding.tvResult.text = "Total with tips: $totalWithTips"
+
+
+
+         }
 
         }
 
