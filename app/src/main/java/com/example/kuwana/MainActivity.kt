@@ -2,6 +2,7 @@ package com.example.kuwana
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
@@ -64,8 +65,26 @@ class MainActivity : AppCompatActivity() {
              android.R.layout.simple_spinner_item
          )
            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+           binding.spinnerNumberOfPeople.adapter = adapter
 
-         binding.spinnerNumberOfPeople.adapter = adapter
+           var numOfPeopleSelected = 0
+           binding.spinnerNumberOfPeople.onItemSelectedListener =
+             object : AdapterView.OnItemSelectedListener {
+
+                 override fun onItemSelected(
+                     parent: AdapterView<*>?,
+                     view: View?,
+                     position: Int,
+                     id: Long,
+                 ) {
+                     numOfPeopleSelected = position
+                 }
+
+                 override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                 }
+
+             }
 
          binding.btnDone.setOnClickListener {
              val totalTableTemp = binding.tieTotal.text
@@ -76,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     .show()
              } else {
                  val totalTable: Float = totalTableTemp.toString().toFloat()
-                 val nPeople: Int = 5
+                 val nPeople: Int = numOfPeopleSelected
 
                  val totaltemp = totalTable / nPeople
                  val tips = totaltemp * percentage / 100
