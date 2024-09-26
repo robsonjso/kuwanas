@@ -2,6 +2,7 @@ package com.example.kuwana
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -57,36 +58,35 @@ class MainActivity : AppCompatActivity() {
               }
           }
 
+         val adapter = ArrayAdapter.createFromResource(
+             this,
+             R.array.num_people,
+             android.R.layout.simple_spinner_item
+         )
+           adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
-
-          binding.btnClean.setOnClickListener { it: View? ->
-              println("Menio1 " + binding.tieTotal.text)
-                println("Menio1 " + binding.tieNumPeople.text)
-          }
+         binding.spinnerNumberOfPeople.adapter = adapter
 
          binding.btnDone.setOnClickListener {
              val totalTableTemp = binding.tieTotal.text
-             val nPeopleTemp = binding.tieNumPeople.text
 
-             if (totalTableTemp?.isEmpty() == true ||
-                 nPeopleTemp?.isEmpty() == true
+             if (totalTableTemp?.isEmpty() == true
                  )  {
                 Snackbar.make(binding.tieTotal, "Preencha todos os campos", Snackbar.LENGTH_LONG)
                     .show()
              } else {
                  val totalTable: Float = totalTableTemp.toString().toFloat()
-                 val nPeople: Int = nPeopleTemp.toString().toInt()
+                 val nPeople: Int = 5
 
                  val totaltemp = totalTable / nPeople
                  val tips = totaltemp * percentage / 100
                  val totalWithTips = totaltemp + tips
-                 binding.tvResult.text = "Total with tips: $totalWithTips"
+                 binding.tvResult.text = "Total with tips: " + totalWithTips
              }
 
            binding.btnClean.setOnClickListener {
                binding.tvResult.setText("")
                binding.tieTotal.setText("")
-               binding.tieNumPeople.setText("")
                binding.rbOptionOne.isChecked = false
                binding.rbOptionTwo.isChecked = false
                binding.rbOptionThree.isChecked = false
