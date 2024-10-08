@@ -100,15 +100,26 @@ class MainActivity : AppCompatActivity() {
                  val totaltemp = totalTable / nPeople
                  val tips = totaltemp * percentage / 100
                  val totalWithTips = totaltemp + tips
+
+                 val intent = intent(this, ResumoActivity::class.java)
+
+                 intent.apply {
+                     putExtra( "totalTable",totalTable)
+                 }
+
+                 startActivity(intent)
+
                  binding.tvResult.text = "Total with tips: " + totalWithTips
              }
 
            binding.btnClean.setOnClickListener {
-               binding.tvResult.setText("")
+               binding.tvResult.text = ""
                binding.tieTotal.setText("")
                binding.rbOptionOne.isChecked = false
                binding.rbOptionTwo.isChecked = false
                binding.rbOptionThree.isChecked = false
+
+
            }
 
 
@@ -116,7 +127,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        }
+    private fun startActivity(intent: Any) {
+
+    }
+
+    private fun intent(mainActivity: MainActivity, resumoActivity: Any): Any {
+
+
+}
 
 
 
