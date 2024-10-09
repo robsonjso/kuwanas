@@ -1,34 +1,16 @@
 package com.example.kuwana
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.kuwana.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {   
 
-    // Valor Total da conta
-    // Numero de pessoas
-    // percentagem da gorjeta
-    // 10% 15% e 20%
-    // calcular
-    // limpar
-
-
-    //Recuperar as views do layout
-    // ViewBinding
-    // recuperar os radios buttons
-    // calculo de tip
-    // mostrar resultados
 
 
     private lateinit var binding: ActivityMainBinding
@@ -101,19 +83,20 @@ class MainActivity : AppCompatActivity() {
                  val tips = totaltemp * percentage / 100
                  val totalWithTips = totaltemp + tips
 
-                 val intent = intent(this, ResumoActivity::class.java)
+                 val intent = Intent(this, ResumoActivity::class.java)
 
                  intent.apply {
                      putExtra( "totalTable",totalTable)
+                     putExtra( "numPeople", numOfPeopleSelected)
+                     putExtra( "percentage", percentage)
+                     putExtra( "totalAmount",totalWithTips)
                  }
 
                  startActivity(intent)
-
-                 binding.tvResult.text = "Total with tips: " + totalWithTips
+                  }
              }
 
            binding.btnClean.setOnClickListener {
-               binding.tvResult.text = ""
                binding.tieTotal.setText("")
                binding.rbOptionOne.isChecked = false
                binding.rbOptionTwo.isChecked = false
@@ -125,7 +108,15 @@ class MainActivity : AppCompatActivity() {
 
          }
 
-        }
+    private fun putExtra(name: String, totalTable: Int) {
+
+    }
+
+}
+
+    private fun putExtra(name: String, totalTable: Float) {
+
+    }
 
     private fun startActivity(intent: Any) {
 
@@ -133,8 +124,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun intent(mainActivity: MainActivity, resumoActivity: Any): Any {
 
+    }
 
-}
+
+
 
 
 

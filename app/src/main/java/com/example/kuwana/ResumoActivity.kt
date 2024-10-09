@@ -12,5 +12,7 @@ class ResumoActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_resumo)
 
+        val totalTable = intent
+
     }
 }
