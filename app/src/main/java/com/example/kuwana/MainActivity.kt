@@ -91,40 +91,28 @@ class MainActivity : AppCompatActivity() {
                      putExtra( "percentage", percentage)
                      putExtra( "totalAmount",totalWithTips)
                  }
-
+                    clean()
                  startActivity(intent)
                   }
              }
 
            binding.btnClean.setOnClickListener {
-               binding.tieTotal.setText("")
-               binding.rbOptionOne.isChecked = false
-               binding.rbOptionTwo.isChecked = false
-               binding.rbOptionThree.isChecked = false
-
-
+             clean()
            }
 
 
          }
 
-    private fun putExtra(name: String, totalTable: Int) {
-
+    private fun clean(){
+        binding.tieTotal.setText("")
+        binding.rbOptionOne.isChecked = false
+        binding.rbOptionTwo.isChecked = false
+        binding.rbOptionThree.isChecked = false
     }
 
 }
 
-    private fun putExtra(name: String, totalTable: Float) {
 
-    }
-
-    private fun startActivity(intent: Any) {
-
-    }
-
-    private fun intent(mainActivity: MainActivity, resumoActivity: Any): Any {
-
-    }
 
 
 
