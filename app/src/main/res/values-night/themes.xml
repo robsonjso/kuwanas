@@ -2,6 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Kuwana" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <color name="primary_400">#2196F3</color>
     </style>
 </resources>
