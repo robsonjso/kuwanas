@@ -42,10 +42,11 @@ Um aplicativo simples e intuitivo para visualizar o resumo de uma conta comparti
 ## 🖼️ Capturas de Tela
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/49e5e150-05bc-44b4-baa8-9314c8e1a813" alt="Kuwana Screenshot" width="400"/>
+  <img src="https://github.com/user-attachments/assets/05e0c2a3-d4f5-42f1-b129-ea2509ff32cf" alt="Kuwana Screenshot" width="400"/>
   <img src="https://github.com/user-attachments/assets/2ebd9d94-30f7-421e-a0cd-377ddb8fed87" alt="Kuwana Screenshot" width="400"/>
   
 </p>
+
 
 
 
