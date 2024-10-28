@@ -1,16 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Kuwana" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/primary_400</item> -->
-    </style>
+
+    <style name="Base.Theme.Kuwana" parent="Theme.Material3.DayNight.NoActionBar"/>
 
     <style name="Theme.Kuwana" parent="Base.Theme.Kuwana" />
-    
-    <style name="Title" parent="Widget.AppCompat.TextView">
-        
-        <item name="android:textSize">32sp</item>
-        <item name="android:textStyle">bold</item>
 
-    </style>
 </resources>

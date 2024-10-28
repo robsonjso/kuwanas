@@ -53,4 +53,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.21")
+    implementation ("nl.dionsegijn:konfetti-xml:2.0.4")
 }
